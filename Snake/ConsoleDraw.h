@@ -2,9 +2,10 @@
 
 #include <Windows.h>
 #include <iostream>
+#include "Vec2d.h"
 
 namespace ConsoleDraw {
-
+	
 
 	using std::cout;
 
@@ -24,4 +25,10 @@ namespace ConsoleDraw {
 		Draw(pos, 'X');
 	}
 
+	static void ClearConsole()
+	{
+		for (short int i = 0; i < 25; ++i)
+			for (short int j = 0; j < 25; ++j)
+				Draw({ i,j }, ' ');
+	}
 }

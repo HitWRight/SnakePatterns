@@ -1,6 +1,7 @@
 #include "Food.h"
 #include "Snake.h"
 #include "ConsoleDraw.h"
+#include "Speed.h"
 
 #include <vector>
 #include <memory>
@@ -50,7 +51,16 @@ void Food::EatSingle()
 {
 	Snake::Instance().IncreaseSize(1);
 
+	Vec2d nextPos = []() {
+		while (true)
+		{
+			Vec2d tryPos = { (short int)dis(gen), (short int)dis(gen) };
+			if (!Snake::Instance().spaceTaken(tryPos))
+				return tryPos;
+		}
+	}();
 	m_position.push_back({(short int)dis(gen), (short int)dis(gen)});
 	
 	ConsoleDraw::Draw(*(m_position.end()-1), FOODSYMBOL);
+	Speed::Instance().IncreaseLevel();
 }

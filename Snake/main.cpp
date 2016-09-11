@@ -3,6 +3,7 @@
 #include "Snake.h"
 #include "ConsoleDraw.h"
 #include "Food.h"
+#include "Speed.h"
 
 int main()
 {
@@ -18,9 +19,9 @@ int main()
 	for (short int i = 0; i < 25; i++)
 	{
 		ConsoleDraw::Draw(Vec2d{ i, (short)0 }, '#');
-		ConsoleDraw::Draw(Vec2d{ i, (short)25 }, '#');
+		ConsoleDraw::Draw(Vec2d{ i, (short)24 }, '#');
 		ConsoleDraw::Draw(Vec2d{ (short)0, i }, '#');
-		ConsoleDraw::Draw(Vec2d{ (short)25, i }, '#');
+		ConsoleDraw::Draw(Vec2d{ (short)24, i }, '#');
 	}
 
 	Food f(3);
@@ -30,7 +31,7 @@ int main()
 				
 		f.FixedUpdate();
 		Snake::Instance().FixedUpdate();
-		Sleep(500);
+		Sleep(Speed::Instance().GetSpeed());
 	} 
 	
 

@@ -1,5 +1,6 @@
 #include "Snake.h"
 #include "ConsoleDraw.h"
+#include "Death.h"
 #include <Windows.h>
 
 #define BODYSYMBOL 'O'
@@ -57,6 +58,17 @@ void Snake::Redraw()
 		ConsoleDraw::Draw(coords, BODYSYMBOL);
 }
 
+void Snake::CheckCollisionWithSelf()
+{
+	if (m_curMoveDir == Direction::none)
+		return;
+	for(auto vi=m_body.begin() + 1; vi != m_body.end(); ++vi)
+		if (m_body[0] == *vi)
+		{
+			Death::Die();
+		}
+}
+
 Snake::~Snake()
 {
 }
@@ -103,8 +115,8 @@ void Snake::FixedUpdate()
 	//redraw
 
 	Move();
-
 	Redraw();
+	CheckCollisionWithSelf();
 }
 
 void Snake::IncreaseSize(int addition)

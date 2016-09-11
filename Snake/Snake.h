@@ -15,11 +15,15 @@ private:
 
 	void Move();
 	void Redraw();
+	void CheckCollisionWithSelf();
+
 
 	Snake(Snake&&) = delete; 
 	Snake(Snake const&) = delete; 
 	Snake& operator= (Snake const&) = delete; 
 	Snake& operator= (Snake&&) = delete;
+
+
 
 protected:
 	Snake();
@@ -36,5 +40,6 @@ public:
 	void IncreaseSize(const int addition);
 	void FixedUpdate();
 	Vec2d GetHeadPosition() { return m_body[0]; }
+	bool spaceTaken(Vec2d ch) { return (std::find(m_body.begin(), m_body.end(), ch)) == m_body.end() ? false : true; }
 };
 
