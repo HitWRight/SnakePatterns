@@ -7,6 +7,7 @@
 #include <memory>
 #include <random>
 #include "Score.h"
+#include "Wall.h"
 
 #define MIN 1
 #define MAX 24
@@ -56,7 +57,7 @@ void Food::EatSingle()
 		while (true)
 		{
 			Vec2d tryPos = { (short int)dis(gen), (short int)dis(gen) };
-			if (!Snake::Instance().spaceTaken(tryPos))
+			if (!Snake::Instance().spaceTaken(tryPos) && !Wall::Instance().CheckBoundary(tryPos))
 				return tryPos;
 		}
 	}();

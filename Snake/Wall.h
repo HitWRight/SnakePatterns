@@ -23,8 +23,7 @@ public:
 
 
 	bool CheckBoundary(Vec2d&);
-	void Generate(int);
-	void Generate(int x, int y);
+	void Generate(int,unsigned short int);
 
 	void Draw();
 
@@ -41,7 +40,7 @@ private:
 	Wall& operator= (Wall const&) = delete;
 	Wall& operator= (Wall&&) = delete;
 
-
+	void GenerateWall(Vec2d from, Vec2d to);
 	
 	
 };

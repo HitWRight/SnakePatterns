@@ -6,3 +6,5 @@
 #define posY 200
 #define FILE_SCORE "scores.txt"
 #define DEFAULT_SIZE 25
+#define DEFAULT_DIFFICULTY 5
+#define DEFFAULT_SYMBOL_WALL '+'
