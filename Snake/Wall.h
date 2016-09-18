@@ -12,6 +12,7 @@ static class Wall
 {
 private:
 	std::vector<Vec2d> boundary;
+
 public:
 	static Wall& Instance()
 	{

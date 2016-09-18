@@ -15,7 +15,7 @@ bool Wall::CheckBoundary(Vec2d &target) {
 
 ///__
 ///__|__|
-///| |__ spanish inquisition
+///| |__ spanish inquisition :PPP
 void Wall::Generate(int x, int y) {
 	for (int i = 0; i < boundary.size(); i++) {
 		double randX = rand() % (int)boundary.size(), randY = rand() % (int)boundary.size();
