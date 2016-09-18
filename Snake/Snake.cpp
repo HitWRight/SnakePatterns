@@ -12,8 +12,7 @@ using namespace std;
 
 Snake::Snake() : m_clearPos({0,0}), 
 				m_body(0), 
-				m_curMoveDir(Direction::none), 
-				m_lastMoveDir(Direction::none)
+				m_curMoveDir(Direction::none)
 {
 	m_body.push_back(Vec2d{ 12, 12 });
 	m_body.push_back(Vec2d{ 12, 12 });

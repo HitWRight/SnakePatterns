@@ -2,11 +2,8 @@
 
 class Speed
 {
-public:
-
 private:
 	int m_speed;
-
 
 	Speed(Speed&&) = delete;
 	Speed(Speed const&) = delete;
