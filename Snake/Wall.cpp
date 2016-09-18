@@ -5,7 +5,7 @@
 using namespace std;
 
 bool Wall::CheckBoundary(Vec2d &target) {
-	for (int i = 0; i < size; i++) {
+	for (int i = 0; i < boundary.size(); i++) {
 		if (boundary[i] == target)
 			return true;
 	}
@@ -13,45 +13,34 @@ bool Wall::CheckBoundary(Vec2d &target) {
 	return false;
 }
 
-void Wall::Generate(int size) {
-	Wall::size = size;
-	for (int i = 0; i < size; i++) {
-		double randX = rand() % (int)size,  randY = rand() % (int)size;
-		boundary.push_back({ (short int)randX, (short int)randY });
-	}
-}
-
+///__
+///__|__|
+///| |__ spanish inquisition
 void Wall::Generate(int x, int y) {
-	Wall::size = size;
-	for (int i = 0; i < size; i++) {
-		double randX = rand() % (int)size, randY = rand() % (int)size;
+	for (int i = 0; i < boundary.size(); i++) {
+		double randX = rand() % (int)boundary.size(), randY = rand() % (int)boundary.size();
 		boundary.push_back({ (short int)randX, (short int)randY });
 	}
 }
 
-void Wall::Generate() {
-	int tempSize = 0;
-	for (short int i = 0; i < 25; i++)
+void Wall::Generate(int size = DEFAULT_SIZE) {
+	for (short int i = 0; i < size; i++)
 	{
 		boundary.push_back(Vec2d{ i, (short)0 });
-		boundary.push_back(Vec2d{ i, (short)24 });
+		boundary.push_back(Vec2d{ i, (short)size-1 });
 		boundary.push_back(Vec2d{ (short)0, i });
-		boundary.push_back(Vec2d{ (short)24, i });
-		tempSize += 4;
+		boundary.push_back(Vec2d{ (short)size-1, i });
 	}
-	Wall::size = tempSize;
-	
 }
 
 void Wall::Draw() {
-	for (int i = 0; i < size; i++) {
+	for (int i = 0; i < boundary.size(); i++) {
 		ConsoleDraw::Draw(boundary[i], '+');
 	}
 }
 
 Wall::Wall() {
 	Generate();
-	//Generate(200);
 }
 
 Wall::~Wall()

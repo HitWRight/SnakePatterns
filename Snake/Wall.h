@@ -11,7 +11,6 @@
 static class Wall
 {
 private:
-	int size;
 	std::vector<Vec2d> boundary;
 public:
 	static Wall& Instance()
@@ -23,7 +22,6 @@ public:
 
 
 	bool CheckBoundary(Vec2d&);
-	void Generate();
 	void Generate(int);
 	void Generate(int x, int y);
 

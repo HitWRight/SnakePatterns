@@ -5,3 +5,4 @@
 #define posX 200
 #define posY 200
 #define FILE_SCORE "scores.txt"
+#define DEFAULT_SIZE 25
