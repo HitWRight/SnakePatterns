@@ -6,6 +6,7 @@
 #include <vector>
 #include <memory>
 #include <random>
+#include "Score.h"
 
 #define MIN 1
 #define MAX 24
@@ -50,7 +51,7 @@ void Food::DrawAll()
 void Food::EatSingle()
 {
 	Snake::Instance().IncreaseSize(1);
-
+	Score::Increment(1);
 	Vec2d nextPos = []() {
 		while (true)
 		{

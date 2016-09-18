@@ -1,7 +1,8 @@
 #include "Death.h"
 #include "ConsoleDraw.h"
 #include "Vec2d.h"
-
+#include "Score.h"
+#include <memory>
 Death::Death()
 {
 }
@@ -12,7 +13,7 @@ Death::~Death()
 
 void Death::Die()
 {
-
+	Score::SaveScore();
 	ConsoleDraw::ClearConsole();
 
 	//25x25
@@ -36,6 +37,9 @@ void Death::Die()
 		{
 			ConsoleDraw::Draw(signStartPos + deathSignPos[i][j], '@');
 		}
+	std::string text("\n\n\nYour score is: " + std::to_string(Score::GetScore()) + "\n");
+	ConsoleDraw::Draw(text);
+
 
 	Sleep(5000);
 

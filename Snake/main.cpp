@@ -4,6 +4,8 @@
 #include "ConsoleDraw.h"
 #include "Food.h"
 #include "Speed.h"
+#include "Wall.h"
+#include "Settings.h"
 
 int main()
 {
@@ -14,16 +16,19 @@ int main()
 	info.FontWeight = FW_NORMAL;
 	wcscpy_s(info.FaceName, L"CONSOLAS");
 	SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), NULL, &info);
-	MoveWindow(GetConsoleWindow(), 200, 200, 460, 360, TRUE);
+	MoveWindow(GetConsoleWindow(), posX, posY, windowX, windowY, TRUE);
 
-	for (short int i = 0; i < 25; i++)
+
+	/*for (short int i = 0; i < 25; i++)
 	{
 		ConsoleDraw::Draw(Vec2d{ i, (short)0 }, '#');
 		ConsoleDraw::Draw(Vec2d{ i, (short)24 }, '#');
 		ConsoleDraw::Draw(Vec2d{ (short)0, i }, '#');
 		ConsoleDraw::Draw(Vec2d{ (short)24, i }, '#');
-	}
+	}*/
 
+
+	Wall::Instance().Draw();
 	Food f(3);
 
 	while(true)

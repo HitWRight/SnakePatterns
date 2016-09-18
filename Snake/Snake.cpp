@@ -2,6 +2,7 @@
 #include "ConsoleDraw.h"
 #include "Death.h"
 #include <Windows.h>
+#include "Wall.h"
 
 #define BODYSYMBOL 'O'
 
@@ -117,6 +118,9 @@ void Snake::FixedUpdate()
 	Move();
 	Redraw();
 	CheckCollisionWithSelf();
+	if (Wall::Instance().CheckBoundary(m_body[0])) {
+		Death::Die();
+	};
 }
 
 void Snake::IncreaseSize(int addition)

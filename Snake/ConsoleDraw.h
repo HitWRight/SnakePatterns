@@ -3,7 +3,7 @@
 #include <Windows.h>
 #include <iostream>
 #include "Vec2d.h"
-
+#include <string>
 namespace ConsoleDraw {
 	
 
@@ -17,6 +17,13 @@ namespace ConsoleDraw {
 		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 		cout << symbol;
 		
+		return;
+	}
+
+	static void Draw(std::string text)
+	{
+		cout << text;
+
 		return;
 	}
 
