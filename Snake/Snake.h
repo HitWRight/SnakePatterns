@@ -4,9 +4,16 @@
 
 #include "Vec2d.h"
 #include "Direction.h"
+#include "Singleton.h"
 
-static class Snake
+#define SINGLETONCLASS(classname) static class classname { friend class Singleton<classname>
+
+//SINGLETONCLASS(Snake)
+
+class Snake
 {
+	friend class Singleton<Snake>;
+
 private:
 	std::vector<Vec2d> m_body;
 	Vec2d m_clearPos;
@@ -16,22 +23,11 @@ private:
 	void Redraw();
 	void CheckCollisionWithSelf();
 
-	Snake(Snake&&) = delete; 
-	Snake(Snake const&) = delete; 
-	Snake& operator= (Snake const&) = delete; 
-	Snake& operator= (Snake&&) = delete;
-
 protected:
 	Snake();
 	~Snake();
 
 public:
-	static Snake& Instance()
-	{
-		static Snake instance;
-		return instance;
-	}
-
 	void IncreaseSize(const int addition);
 	void FixedUpdate();
 	Vec2d GetHeadPosition() { return m_body[0]; }

@@ -17,7 +17,7 @@ protected:
 public:
 	static Speed& Instance()
 	{
-		static Speed instance;
+		Speed instance;
 		return instance;
 	}
 

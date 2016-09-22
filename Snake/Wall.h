@@ -6,8 +6,6 @@
 #include "Settings.h"
 #include <memory>
 
-
-
 static class Wall
 {
 private:
@@ -22,8 +20,8 @@ public:
 
 
 
-	bool CheckBoundary(Vec2d&);
-	void Generate(int,unsigned short int);
+	bool CheckBoundary(Vec2d const& position);
+	void Generate(int, unsigned short int);
 
 	void Draw();
 

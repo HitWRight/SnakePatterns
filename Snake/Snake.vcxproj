@@ -163,13 +163,12 @@
     <ClInclude Include="Powerup.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="Settings.h" />
+    <ClInclude Include="Singleton.h" />
     <ClInclude Include="Snake.h" />
+    <ClInclude Include="Snakes.h" />
     <ClInclude Include="Speed.h" />
     <ClInclude Include="Vec2d.h" />
     <ClInclude Include="Wall.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="scores.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

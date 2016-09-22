@@ -6,9 +6,12 @@
 #include "Speed.h"
 #include "Wall.h"
 #include "Settings.h"
+#include "Singleton.h"
 
 int main()
 {
+	//printf("%s%s", true ? "test", "test2" : "test3", "test4");
+
 	CONSOLE_FONT_INFOEX info = { 0 };
 	info.cbSize = sizeof(info);
 	info.dwFontSize.X = 16;
@@ -35,7 +38,7 @@ int main()
 	{
 				
 		f.FixedUpdate();
-		Snake::Instance().FixedUpdate();
+		Singleton<Snake>::Instance().FixedUpdate();
 		Sleep(Speed::Instance().GetSpeed());
 	} 
 	

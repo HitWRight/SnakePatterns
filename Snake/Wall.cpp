@@ -2,16 +2,17 @@
 #include <cmath>
 #include <ctime>
 #include "Snake.h"
+#include "Singleton.h"
 
 
 using namespace std;
 
-bool Wall::CheckBoundary(Vec2d &target) {
-	for (int i = 0; i < boundary.size(); i++) {
-		if (boundary[i] == target)
+bool Wall::CheckBoundary(Vec2d const& target) {
+	for(auto& a : boundary)
+	{
+		if (target == a)
 			return true;
 	}
-
 	return false;
 }
 
@@ -43,6 +44,8 @@ void Wall::Generate(int size = DEFAULT_SIZE, unsigned short int difficulty = DEF
 			else 
 				randomLength = rand() % (size - randomY) + 3;
 
+			GenerateWall({ 10,10 }, { 10,0 });
+
 			if (direction) {
 				GenerateWall(Vec2d{(short) randomX,(short)randomY }, Vec2d{ (short)(randomX + randomLength), (short)randomY});
 			}
@@ -58,7 +61,7 @@ void Wall::Generate(int size = DEFAULT_SIZE, unsigned short int difficulty = DEF
 
 void Wall::GenerateWall(Vec2d from, Vec2d to) {
 	if (from.x != to.x && from.y != to.y) {
-		cout << "Bad coordinates. Can't make wall!\n";
+		throw std::exception("Bad coordinates. Can't make wall!");
 		return;
 	}
 
@@ -71,15 +74,14 @@ void Wall::GenerateWall(Vec2d from, Vec2d to) {
 			from.y++;
 		}
 
-		if (!CheckBoundary(from) && !(Snake::Instance().GetHeadPosition() == from))
+		if (!CheckBoundary(from) && !(Singleton<Snake>::Instance().GetHeadPosition() == from))
 			boundary.push_back(from);
 	}
 }
 
 void Wall::Draw() {
-	for (int i = 0; i < boundary.size(); i++) {
-		ConsoleDraw::Draw(boundary[i], DEFFAULT_SYMBOL_WALL);
-	}
+	for(auto b : boundary)
+		ConsoleDraw::Draw(b, DEFFAULT_SYMBOL_WALL);
 }
 
 Wall::Wall() {

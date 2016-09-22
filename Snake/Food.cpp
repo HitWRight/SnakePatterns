@@ -8,6 +8,8 @@
 #include <random>
 #include "Score.h"
 #include "Wall.h"
+#include "Singleton.h"
+
 
 #define MIN 1
 #define MAX 24
@@ -29,7 +31,7 @@ Food::Food(int count)
 
 void Food::FixedUpdate()
 {
-	Vec2d pos = Snake::Instance().GetHeadPosition();
+	Vec2d pos = Singleton<Snake>::Instance().GetHeadPosition();
 	for (auto vb = m_position.begin(), ve = m_position.end(); vb != ve; ++vb )
 	{
 		if (vb->x == pos.x && vb->y == pos.y)
@@ -51,17 +53,17 @@ void Food::DrawAll()
 
 void Food::EatSingle()
 {
-	Snake::Instance().IncreaseSize(1);
+	Singleton<Snake>::Instance().IncreaseSize(1);
 	Score::Increment(1);
 	Vec2d nextPos = []() {
 		while (true)
 		{
 			Vec2d tryPos = { (short int)dis(gen), (short int)dis(gen) };
-			if (!Snake::Instance().spaceTaken(tryPos) && !Wall::Instance().CheckBoundary(tryPos))
+			if (!Singleton<Snake>::Instance().spaceTaken(tryPos) && !Wall::Instance().CheckBoundary(tryPos))
 				return tryPos;
 		}
 	}();
-	m_position.push_back({(short int)dis(gen), (short int)dis(gen)});
+	m_position.push_back(nextPos);
 	
 	ConsoleDraw::Draw(*(m_position.end()-1), FOODSYMBOL);
 	Speed::Instance().IncreaseLevel();
