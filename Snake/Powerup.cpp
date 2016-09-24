@@ -29,7 +29,7 @@ void Powerup::FixedUpdate()
 	BaseFood::FixedUpdate(m_position);
 }
 
-Powerup::Powerup(int count = 0,  char sym = DEFFAULT_SYMBOL_POWERUP) {
+Powerup::Powerup(int count = 0,  char sym = DEFAULT_SYMBOL_POWERUP) {
 	Powerup::sym = sym;
 	for (int n = 0; n < count; ++n) {
 		BaseFood::Spawn(m_position);

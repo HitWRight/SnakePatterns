@@ -18,7 +18,6 @@ private:
 	std::vector<Vec2d> m_body;
 	Vec2d m_clearPos;
 	Direction m_curMoveDir;
-	std::vector<double> m_test;
 	void Move();
 	void Redraw();
 	void CheckCollisionWithSelf();

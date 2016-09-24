@@ -86,7 +86,7 @@ void Wall::GenerateWall(Vec2d from, Vec2d to) {
 
 void Wall::Draw() {
 	for(auto b : boundary)
-		ConsoleDraw::Draw(b, DEFFAULT_SYMBOL_WALL);
+		ConsoleDraw::Draw(b, DEFAULT_SYMBOL_WALL);
 }
 
 Wall::Wall() {

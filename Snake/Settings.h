@@ -7,6 +7,6 @@
 #define FILE_SCORE "scores.txt"
 #define DEFAULT_SIZE 25
 #define DEFAULT_DIFFICULTY 5
-#define DEFFAULT_SYMBOL_WALL '+'
-#define DEFFAULT_SYMBOL_POWERUP '^'
-#define DEFFAULT_SYMBOL_FOOD '*'
+#define DEFAULT_SYMBOL_WALL '+'
+#define DEFAULT_SYMBOL_POWERUP '^'
+#define DEFAULT_SYMBOL_FOOD '*'

@@ -1,6 +1,6 @@
 #pragma once
 
-enum PowerupTypes
+enum class PowerupTypes
 {
 	Speed = 3,
 	Size = 4,

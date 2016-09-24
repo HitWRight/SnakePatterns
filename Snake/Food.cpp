@@ -32,12 +32,12 @@ void Food::Eat()
 	Singleton<Snake>::Instance().IncreaseSize(1);
 	Score::Increment(1);
 	BaseFood::Spawn(m_position);
-	ConsoleDraw::Draw(*(m_position.end() - 1), DEFFAULT_SYMBOL_FOOD);
+	ConsoleDraw::Draw(*(m_position.end() - 1), DEFAULT_SYMBOL_FOOD);
 	Speed::Instance().IncreaseLevel();
 }
 
 void Food::DrawAll()
 {
-	BaseFood::DrawAll(m_position, DEFFAULT_SYMBOL_FOOD);
+	BaseFood::DrawAll(m_position, DEFAULT_SYMBOL_FOOD);
 }
 

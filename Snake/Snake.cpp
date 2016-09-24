@@ -19,9 +19,6 @@ Snake::Snake() : m_clearPos({0,0}),
 	m_body.push_back(Vec2d{ 12, 12 });
 
 	
-		for (int i = 0; i < 100000; i++)
-			m_test.push_back(5.5);
-	
 }
 
 void Snake::Move()
