@@ -2,16 +2,20 @@
 #include "Vec2d.h"
 #include <memory>
 #include <vector>
+#include "BaseFood.h"
 
-class Food
+class Food : BaseFood
 {
 private:
-	std::vector<Vec2d> m_position;
 
 	void DrawAll();
+	std::vector<Vec2d> m_position;
 
-	void EatSingle();
+	// Inherited via BaseFood
+	virtual void Eat() override;
+
 public:
 	Food(int count);
 	void FixedUpdate();
+
 };

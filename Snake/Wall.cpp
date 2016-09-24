@@ -34,17 +34,19 @@ void Wall::Generate(int size = DEFAULT_SIZE, unsigned short int difficulty = DEF
 
 		srand(time(NULL));
 		for (int i = 0; i < difficulty; i++) {
-			int randomX = rand() % (size - 2) + 1;
-			int randomY = rand() % (size - 2) + 1;
-			int random = rand();
-			bool direction = (random % 2 == 0);
-			int randomLength;
-			if(direction)
-				randomLength = rand() % (size - randomX) + 3;
-			else 
-				randomLength = rand() % (size - randomY) + 3;
+			int randomX = rand() % (size - 2) + 1; //1-24
+			int randomY = rand() % (size - 2) + 1; //1-24
+			bool direction = (rand() % 2 == 0);
+			int randomLength = [&](int randX, int randY) {	
+				int len = rand() % size + 3; //3-27
+				if (direction)
+					return (len + randomX >= size) ? (size - randomX - 1) : len; //24-3
+				return (len + randomY >= size) ? (size - randomY - 1) : len;
+			}(randomX, randomY);
+			
+			
 
-			GenerateWall({ 10,10 }, { 10,0 });
+			//GenerateWall({ 10,10 }, { 10,0 });
 
 			if (direction) {
 				GenerateWall(Vec2d{(short) randomX,(short)randomY }, Vec2d{ (short)(randomX + randomLength), (short)randomY});
@@ -65,12 +67,15 @@ void Wall::GenerateWall(Vec2d from, Vec2d to) {
 		return;
 	}
 
+	if (from.x >= to.x && from.y >= to.y)
+		swap(from, to);
+
 
 	while (from.x != to.x || from.y != to.y) {
-		if (abs(from.x) < abs(to.x)) {
+		if (from.x < to.x) {
 			from.x++;
 		}
-		if (abs(from.y) < abs(to.y)) {
+		if (from.y < to.y) {
 			from.y++;
 		}
 

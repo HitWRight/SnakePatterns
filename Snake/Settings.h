@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #define windowX 460
 #define windowY 360
@@ -8,3 +8,5 @@
 #define DEFAULT_SIZE 25
 #define DEFAULT_DIFFICULTY 5
 #define DEFFAULT_SYMBOL_WALL '+'
+#define DEFFAULT_SYMBOL_POWERUP '^'
+#define DEFFAULT_SYMBOL_FOOD '*'

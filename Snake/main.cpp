@@ -7,10 +7,11 @@
 #include "Wall.h"
 #include "Settings.h"
 #include "Singleton.h"
+#include "Powerup.h"
 
 int main()
 {
-	//printf("%s%s", true ? "test", "test2" : "test3", "test4");
+	//printf("%s%s", (true ? "test", "test2" : "test3", "test4"));
 
 	CONSOLE_FONT_INFOEX info = { 0 };
 	info.cbSize = sizeof(info);
@@ -21,23 +22,16 @@ int main()
 	SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), NULL, &info);
 	MoveWindow(GetConsoleWindow(), posX, posY, windowX, windowY, TRUE);
 
-
-	/*for (short int i = 0; i < 25; i++)
-	{
-		ConsoleDraw::Draw(Vec2d{ i, (short)0 }, '#');
-		ConsoleDraw::Draw(Vec2d{ i, (short)24 }, '#');
-		ConsoleDraw::Draw(Vec2d{ (short)0, i }, '#');
-		ConsoleDraw::Draw(Vec2d{ (short)24, i }, '#');
-	}*/
-
-
-	Wall::Instance().Draw();
 	Food f(3);
+	Powerup p(1, '^');
+	Wall::Instance().Draw();
+	
 
 	while(true)
 	{
 				
 		f.FixedUpdate();
+		p.FixedUpdate();
 		Singleton<Snake>::Instance().FixedUpdate();
 		Sleep(Speed::Instance().GetSpeed());
 	} 

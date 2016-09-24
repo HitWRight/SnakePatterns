@@ -36,6 +36,12 @@
     <ClCompile Include="Score.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Powerup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseFood.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Snake.h">
@@ -78,6 +84,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Snakes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseFood.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PowerupTypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

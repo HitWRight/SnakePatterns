@@ -146,9 +146,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BaseFood.cpp" />
     <ClCompile Include="Death.cpp" />
     <ClCompile Include="Food.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Powerup.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="Snake.cpp" />
     <ClCompile Include="Speed.cpp" />
@@ -159,8 +161,10 @@
     <ClInclude Include="Death.h" />
     <ClInclude Include="Direction.h" />
     <ClInclude Include="Food.h" />
+    <ClInclude Include="BaseFood.h" />
     <ClInclude Include="Lives.h" />
     <ClInclude Include="Powerup.h" />
+    <ClInclude Include="PowerupTypes.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="Singleton.h" />
