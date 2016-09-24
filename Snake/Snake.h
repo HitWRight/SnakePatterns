@@ -31,6 +31,7 @@ public:
 	void IncreaseSize(const int addition);
 	void FixedUpdate();
 	Vec2d GetHeadPosition() { return m_body[0]; }
+	void Reverse();
 	bool spaceTaken(Vec2d ch) { return (std::find(m_body.begin(), m_body.end(), ch)) == m_body.end() ? false : true; }
 };
 

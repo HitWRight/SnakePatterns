@@ -151,6 +151,7 @@
     <ClCompile Include="Food.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Powerup.cpp" />
+    <ClCompile Include="PowerupHandler.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="Snake.cpp" />
     <ClCompile Include="Speed.cpp" />
@@ -162,14 +163,13 @@
     <ClInclude Include="Direction.h" />
     <ClInclude Include="Food.h" />
     <ClInclude Include="BaseFood.h" />
-    <ClInclude Include="Lives.h" />
     <ClInclude Include="Powerup.h" />
+    <ClInclude Include="PowerupHandler.h" />
     <ClInclude Include="PowerupTypes.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Snake.h" />
-    <ClInclude Include="Snakes.h" />
     <ClInclude Include="Speed.h" />
     <ClInclude Include="Vec2d.h" />
     <ClInclude Include="Wall.h" />

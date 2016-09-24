@@ -8,9 +8,12 @@
 #include "Settings.h"
 #include "Singleton.h"
 #include "Powerup.h"
+#include <ctime>
 
 int main()
 {
+
+	srand(time(NULL));
 	//printf("%s%s", (true ? "test", "test2" : "test3", "test4"));
 
 	CONSOLE_FONT_INFOEX info = { 0 };
@@ -22,16 +25,13 @@ int main()
 	SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), NULL, &info);
 	MoveWindow(GetConsoleWindow(), posX, posY, windowX, windowY, TRUE);
 
-	Food f(3);
-	Powerup p(1, '^');
 	Wall::Instance().Draw();
-	
+	Food f(3);
 
 	while(true)
 	{
 				
 		f.FixedUpdate();
-		p.FixedUpdate();
 		Singleton<Snake>::Instance().FixedUpdate();
 		Sleep(Speed::Instance().GetSpeed());
 	} 

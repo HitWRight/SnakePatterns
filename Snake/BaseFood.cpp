@@ -1,24 +1,20 @@
 #include <memory>
-#include <random>
 #include "Score.h"
 #include "Wall.h"
 #include "Singleton.h"
 #include "BaseFood.h"
 #include "Snake.h"
 #include "Vec2d.h"
+#include "Powerup.h"
 
 
 using namespace std;
-
-#define MIN 1
-#define MAX 24
-
 
 random_device rd;
 mt19937 gen(rd());
 uniform_real_distribution<> dis(MIN, MAX);
 
-void BaseFood::Spawn(vector<Vec2d> &position)
+void BaseFood::Spawn()
 {
 	Vec2d nextPos = []() {
 		while (true)
@@ -28,22 +24,22 @@ void BaseFood::Spawn(vector<Vec2d> &position)
 				return tryPos;
 		}
 	}();
-	position.push_back(nextPos);
+	m_position.push_back(nextPos);
 }
-void BaseFood::DrawAll(vector<Vec2d> &const position, char sym)
+void BaseFood::DrawAll()
 {
-	for (auto a : position)
+	for (auto a : m_position)
 		ConsoleDraw::Draw(a, sym);
 }
 
-void BaseFood::FixedUpdate(vector<Vec2d> &position)
+void BaseFood::FixedUpdate()
 {
 	Vec2d pos = Singleton<Snake>::Instance().GetHeadPosition();
-	for (auto vb = position.begin(), ve = position.end(); vb != ve; ++vb)
+	for (auto vb = m_position.begin(), ve = m_position.end(); vb != ve; ++vb)
 	{
 		if (vb->x == pos.x && vb->y == pos.y)
 		{
-			position.erase(vb);
+			m_position.erase(vb);
 			Eat();
 
 			break;

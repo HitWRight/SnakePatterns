@@ -3,19 +3,19 @@
 #include <memory>
 #include <vector>
 #include "BaseFood.h"
+#include "Settings.h"
+#include "PowerupHandler.h"
 
-class Food : BaseFood
+class Food : public BaseFood
 {
 private:
-
-	void DrawAll();
-	std::vector<Vec2d> m_position;
+	PowerupHandler handler;
 
 	// Inherited via BaseFood
 	virtual void Eat() override;
 
 public:
-	Food(int count);
-	void FixedUpdate();
+	Food(int count = 0, char sym = DEFAULT_SYMBOL_FOOD);
 
+	virtual void FixedUpdate() override;
 };

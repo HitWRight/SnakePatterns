@@ -42,6 +42,9 @@
     <ClCompile Include="BaseFood.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PowerupHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Snake.h">
@@ -74,22 +77,19 @@
     <ClInclude Include="Score.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Lives.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Powerup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Singleton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Snakes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="BaseFood.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PowerupTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PowerupHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

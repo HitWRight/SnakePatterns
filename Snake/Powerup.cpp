@@ -7,37 +7,65 @@
 #include "PowerupTypes.h"
 
 
-#define MIN 1
-#define MAX 24
-
 
 using namespace std;
 
+
+
 void Powerup::Eat()
 {
-	//Singleton<Snake>::Instance().IncreaseSize(1);
-	Score::Increment(points);
-	BaseFood::Spawn(m_position);
-	ConsoleDraw::Draw(*(m_position.end() - 1), sym);
-	Speed::Instance().IncreaseLevel();
-}
-
-
-
-void Powerup::FixedUpdate()
-{
-	BaseFood::FixedUpdate(m_position);
-}
-
-Powerup::Powerup(int count = 0,  char sym = DEFAULT_SYMBOL_POWERUP) {
-	Powerup::sym = sym;
-	for (int n = 0; n < count; ++n) {
-		BaseFood::Spawn(m_position);
+	Score::Increment((int)type);
+	switch (type)
+	{
+	case PowerupTypes::Speed:
+		for (int i = 0; i < POWER_UP_SPEED_INCREASE; i++)
+			Speed::Instance().IncreaseLevel();
+		break;
+	case PowerupTypes::Size:
+		Singleton<Snake>::Instance().IncreaseSize(POWER_UP_SIZE_INCREASE);
+		break;
+	case PowerupTypes::Reverse:
+		Singleton<Snake>::Instance().Reverse();
+		break;
+	default:
+		throw exception("Powerup not recognised!");
 	}
+	Singleton<Snake>::Instance().IncreaseSize(1);
+	//ConsoleDraw::Draw(*(m_position.end() - 1), sym);
+}
+
+
+Powerup::Powerup(PowerupTypes type) 
+{
+	Powerup::type = type;
+	switch (type)
+	{
+	case PowerupTypes::Speed:
+		Powerup::sym = POWER_UP_SPEED;
+		
+		break;
+	case PowerupTypes::Size:
+		Powerup::sym = POWER_UP_SIZE;
+
+		break;
+	case PowerupTypes::Reverse:
+		Powerup::sym = POWER_UP_REVERSE;
+
+		break;
+	default:
+		Powerup::sym = DEFAULT_SYMBOL_POWERUP;
+		break;
+	}
+
+	Powerup::Spawn();
 	DrawAll();
 }
 
-void Powerup::DrawAll()
+Powerup::Powerup()
 {
-	BaseFood::DrawAll(m_position, sym);
+}
+
+int Powerup::GetCount()
+{
+	return m_position.size();
 }

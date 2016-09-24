@@ -6,9 +6,14 @@ using namespace std;
 
 class BaseFood {
 public:
-	void FixedUpdate(vector<Vec2d> &position);
+	virtual void FixedUpdate();
+	void Spawn();
 protected:
-	void DrawAll(vector<Vec2d> &const position, char sym);
+	std::vector<Vec2d> m_position;
+	char sym;
+
+
+	void DrawAll();
 	virtual void Eat() = 0;
-	void Spawn(vector<Vec2d> &position);
+	
 };

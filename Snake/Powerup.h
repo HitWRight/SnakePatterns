@@ -1,22 +1,16 @@
 #pragma once
-#include "Food.h"
 #include "BaseFood.h"
 #include "Settings.h"
-
-class Powerup : BaseFood{
+#include "PowerupTypes.h"
+class Powerup : public BaseFood{
 public:
-	Powerup(int count, char sym);
-	void DrawAll();
-	void FixedUpdate();
+	Powerup(PowerupTypes type);
+	Powerup();
+	int GetCount();
 private:
-	//random buffs
-	//random spawn
-	int points;
-	char sym;
-	std::vector<Vec2d> m_position;
-	
+	PowerupTypes type;
 
 
-	// Inherited via IEatable
+	// Inherited via BaseFood
 	virtual void Eat() override;
 };

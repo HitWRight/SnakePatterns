@@ -32,7 +32,6 @@ void Wall::Generate(int size = DEFAULT_SIZE, unsigned short int difficulty = DEF
 		break;
 	default:
 
-		srand(time(NULL));
 		for (int i = 0; i < difficulty; i++) {
 			int randomX = rand() % (size - 2) + 1; //1-24
 			int randomY = rand() % (size - 2) + 1; //1-24

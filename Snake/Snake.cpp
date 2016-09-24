@@ -124,6 +124,11 @@ void Snake::FixedUpdate()
 	};
 }
 
+void Snake::Reverse()
+{
+	reverse(m_body.begin(), m_body.end());
+}
+
 void Snake::IncreaseSize(int addition)
 {
 	for (int i = 0; i < addition; ++i)

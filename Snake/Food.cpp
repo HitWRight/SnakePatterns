@@ -10,34 +10,31 @@
 #include "Wall.h"
 #include "Singleton.h"
 #include "Settings.h"
+#include "Powerup.h"
 
 
-Food::Food(int count)
+Food::Food(int count, char sym)
 {
+	handler = PowerupHandler();
+	Food::sym = sym;
 	for (int n = 0; n < count; ++n) {
-		BaseFood::Spawn(m_position);
+		Food::Spawn();
 	}
 
 	DrawAll();
-}
-
-void Food::FixedUpdate()
-{
-	BaseFood::FixedUpdate(m_position);
-
 }
 
 void Food::Eat()
 {
 	Singleton<Snake>::Instance().IncreaseSize(1);
 	Score::Increment(1);
-	BaseFood::Spawn(m_position);
-	ConsoleDraw::Draw(*(m_position.end() - 1), DEFAULT_SYMBOL_FOOD);
+	Food::Spawn();
+	handler.Handle();
+	ConsoleDraw::Draw(*(m_position.end() - 1), sym);
 	Speed::Instance().IncreaseLevel();
 }
 
-void Food::DrawAll()
-{
-	BaseFood::DrawAll(m_position, DEFAULT_SYMBOL_FOOD);
+void Food::FixedUpdate() {
+	BaseFood::FixedUpdate();
+	handler.p.FixedUpdate();
 }
-
