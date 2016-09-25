@@ -127,6 +127,21 @@ void Snake::FixedUpdate()
 void Snake::Reverse()
 {
 	reverse(m_body.begin(), m_body.end());
+	
+	//Set Direction to tail
+	if (m_body.size() < 2)
+		throw new std::exception("Snake too short for reverse too work correctly, reimplement the function for correct behaviour");
+
+	m_curMoveDir = [&]() { 
+		if (m_body[0].x > m_body[1].x)
+			return Direction::right;
+		if (m_body[0].x < m_body[1].x)
+			return Direction::left;
+		if (m_body[0].y > m_body[1].y)
+			return Direction::down;
+
+		return Direction::up;
+	}();
 }
 
 void Snake::IncreaseSize(int addition)
