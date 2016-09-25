@@ -1,5 +1,4 @@
 ﻿#pragma once
-#include <random>
 #define windowX 460
 #define windowY 360
 #define posX 200
