@@ -25,7 +25,7 @@ int main()
 	SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), NULL, &info);
 	MoveWindow(GetConsoleWindow(), posX, posY, windowX, windowY, TRUE);
 
-	Wall::Instance().Draw();
+	Singleton<Wall>::Instance().Draw();
 	Food f(3);
 
 	while(true)
@@ -33,7 +33,7 @@ int main()
 				
 		f.FixedUpdate();
 		Singleton<Snake>::Instance().FixedUpdate();
-		Sleep(Speed::Instance().GetSpeed());
+		Sleep(Singleton<Speed>::Instance().GetSpeed());
 	} 
 	
 

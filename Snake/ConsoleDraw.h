@@ -9,7 +9,7 @@ namespace ConsoleDraw {
 
 	using std::cout;
 
-	static void Draw(const Vec2d pos, const char symbol)
+	static void Draw(Vec2d const& pos, char const& symbol)
 	{
 		//Initialize the coordinates
 		COORD coord = { pos.x, pos.y }; //Static cast unable to work
@@ -20,14 +20,14 @@ namespace ConsoleDraw {
 		return;
 	}
 
-	static void Draw(std::string text)
+	static void Draw(std::string const& text)
 	{
 		cout << text;
 
 		return;
 	}
 
-	static void Erase(const Vec2d pos)
+	static void Erase(Vec2d const& pos)
 	{
 		Draw(pos, 'X');
 	}

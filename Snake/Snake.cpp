@@ -119,7 +119,7 @@ void Snake::FixedUpdate()
 	Move();
 	Redraw();
 	CheckCollisionWithSelf();
-	if (Wall::Instance().CheckBoundary(m_body[0])) {
+	if (Singleton<Wall>::Instance().CheckBoundary(m_body[0])) {
 		Death::Die();
 	};
 }

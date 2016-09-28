@@ -19,7 +19,7 @@ void Powerup::Eat()
 	{
 	case PowerupTypes::Speed:
 		for (int i = 0; i < POWER_UP_SPEED_INCREASE; i++)
-			Speed::Instance().IncreaseLevel();
+			Singleton<Speed>::Instance().IncreaseLevel();
 		break;
 	case PowerupTypes::Size:
 		Singleton<Snake>::Instance().IncreaseSize(POWER_UP_SIZE_INCREASE);

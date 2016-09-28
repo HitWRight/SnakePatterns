@@ -1,26 +1,19 @@
 #pragma once
+#include "Singleton.h"
+
 
 class Speed
 {
+	friend class Singleton<Speed>;
+
 private:
 	int m_speed;
-
-	Speed(Speed&&) = delete;
-	Speed(Speed const&) = delete;
-	Speed& operator= (Speed const&) = delete;
-	Speed& operator= (Speed&&) = delete;
 
 protected:
 	Speed();
 	~Speed();
 
 public:
-	static Speed& Instance()
-	{
-		Speed instance;
-		return instance;
-	}
-
 	int GetSpeed();
 	void IncreaseLevel();
 };

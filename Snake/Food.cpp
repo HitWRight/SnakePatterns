@@ -31,7 +31,7 @@ void Food::Eat()
 	Food::Spawn();
 	handler.Handle();
 	ConsoleDraw::Draw(*(m_position.end() - 1), sym);
-	Speed::Instance().IncreaseLevel();
+	Singleton<Speed>::Instance().IncreaseLevel();
 }
 
 void Food::FixedUpdate() {

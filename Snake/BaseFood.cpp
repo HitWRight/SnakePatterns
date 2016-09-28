@@ -20,7 +20,7 @@ void BaseFood::Spawn()
 		while (true)
 		{
 			Vec2d tryPos = { (short int)dis(gen), (short int)dis(gen) };
-			if (!Singleton<Snake>::Instance().spaceTaken(tryPos) && !Wall::Instance().CheckBoundary(tryPos))
+			if (!Singleton<Snake>::Instance().spaceTaken(tryPos) && !Singleton<Wall>::Instance().CheckBoundary(tryPos))
 				return tryPos;
 		}
 	}();
