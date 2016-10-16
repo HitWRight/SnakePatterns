@@ -1,4 +1,5 @@
 #include <memory>
+#include <random>
 #include "Score.h"
 #include "Wall.h"
 #include "Singleton.h"

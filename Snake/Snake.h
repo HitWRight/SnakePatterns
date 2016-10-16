@@ -6,10 +6,6 @@
 #include "Direction.h"
 #include "Singleton.h"
 
-#define SINGLETONCLASS(classname) static class classname { friend class Singleton<classname>
-
-//SINGLETONCLASS(Snake)
-
 class Snake
 {
 	friend class Singleton<Snake>;

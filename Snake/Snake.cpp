@@ -106,16 +106,6 @@ void Snake::FixedUpdate()
 	}
 	
 	m_curMoveDir = newDir;
-
-
-
-
-
-	//get key
-	//update movement direction
-	//execute movement
-	//redraw
-
 	Move();
 	Redraw();
 	CheckCollisionWithSelf();
