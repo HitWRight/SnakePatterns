@@ -2,7 +2,7 @@
 
 enum class PowerupTypes
 {
-	Speed = 3,
-	Size = 4,
-	Reverse = 5
+	Speed = 0,
+	Size = 1,
+	Reverse = 2
 };

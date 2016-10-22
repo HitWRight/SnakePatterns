@@ -26,13 +26,15 @@ void GameScene::Update()
 		if (i->Update()) break; //Expensive stuff baby *snort*
 	}
 
+	std::random_device rd;
+	std::mt19937 gen(rd());
 	m_counter++;
 	if (COUNTER_SETTING == m_counter)
 	{
 		ItemFactory* factory = [](int randNumber) {
 			if (POWERUP == randNumber)
-				return new PowerupFactory;
-			return new FoodFactory;
+				return static_cast<ItemFactory*>(new PowerupFactory); // Fuck VC++ with inability to correctly deduce types inside lambdas
+			return static_cast<ItemFactory*>(new FoodFactory);
 		}(dis(gen));
 
 		mapItems.push_back(factory->CreateItem());
@@ -60,6 +62,8 @@ Vec2d const & GameScene::GetUnusedPosition()
 	std::uniform_real_distribution<> dist(1, 24);
 	while (true)
 	{	
+		std::random_device rd;
+		std::mt19937 gen(rd());
 		Vec2d tryPos = { (short int)dist(gen), (short int)dist(gen) };
 		if (!Singleton<Snake>::Instance().spaceTaken(tryPos) && !Singleton<Wall>::Instance().CheckBoundary(tryPos))
 			return tryPos;

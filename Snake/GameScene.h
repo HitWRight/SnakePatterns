@@ -7,11 +7,6 @@
 #include "Item.h"
 #include "Singleton.h"
 
-
-std::random_device rd;
-std::mt19937 gen(rd());
-
-
 struct GameScene
 {
 	friend class Singleton<GameScene>;

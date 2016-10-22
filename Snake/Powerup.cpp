@@ -6,13 +6,17 @@
 #include "ConsoleDraw.h"
 #include <random>
 
-std::uniform_real_distribution<> dis(0, 2);
+
 
 Powerup::Powerup()
 {
 	m_position = Singleton<GameScene>::Instance().GetUnusedPosition();
 
-	m_type = static_cast<PowerupTypes>((short int)dis(gen));
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_real_distribution<> dis(0, 2);
+	int wut = (short int)dis(gen);
+	m_type = static_cast<PowerupTypes>(wut);
 
 	switch (m_type)
 	{
@@ -30,7 +34,7 @@ Powerup::Powerup()
 		throw new std::exception("Something fucky was with the Powerups");
 	}
 
-	ConsoleDraw::Draw(m_position, '+');
+	ConsoleDraw::Draw(m_position, '&');
 }
 
 bool Powerup::Update()
