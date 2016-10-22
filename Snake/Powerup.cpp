@@ -1,71 +1,39 @@
 #include "Powerup.h"
-#include "Snake.h"
-#include "Score.h"
-#include "Wall.h"
 #include "Speed.h"
+#include "Snake.h"
+#include "Singleton.h"
+#include "GameScene.h"
+#include "ConsoleDraw.h"
 #include <random>
-#include "PowerupTypes.h"
 
+std::uniform_real_distribution<> dis(0, 2);
 
-
-using namespace std;
-
-
-
-void Powerup::Eat()
+Powerup::Powerup()
 {
-	Score::Increment((int)type);
-	switch (type)
+	m_position = Singleton<GameScene>::Instance().GetUnusedPosition();
+
+	m_type = static_cast<PowerupTypes>((short int)dis(gen));
+
+	switch (m_type)
 	{
 	case PowerupTypes::Speed:
-		for (int i = 0; i < POWER_UP_SPEED_INCREASE; i++)
-			Singleton<Speed>::Instance().IncreaseLevel();
+		for(int i=0;i<5;i++)
+		Singleton<Speed>::Instance().IncreaseLevel();
 		break;
 	case PowerupTypes::Size:
-		Singleton<Snake>::Instance().IncreaseSize(POWER_UP_SIZE_INCREASE);
+		Singleton<Snake>::Instance().IncreaseSize(5);
 		break;
 	case PowerupTypes::Reverse:
 		Singleton<Snake>::Instance().Reverse();
 		break;
 	default:
-		throw exception("Powerup not recognised!");
-	}
-	Singleton<Snake>::Instance().IncreaseSize(1);
-	//ConsoleDraw::Draw(*(m_position.end() - 1), sym);
-}
-
-
-Powerup::Powerup(PowerupTypes type) 
-{
-	Powerup::type = type;
-	switch (type)
-	{
-	case PowerupTypes::Speed:
-		Powerup::sym = POWER_UP_SPEED;
-		
-		break;
-	case PowerupTypes::Size:
-		Powerup::sym = POWER_UP_SIZE;
-
-		break;
-	case PowerupTypes::Reverse:
-		Powerup::sym = POWER_UP_REVERSE;
-
-		break;
-	default:
-		Powerup::sym = DEFAULT_SYMBOL_POWERUP;
-		break;
+		throw new std::exception("Something fucky was with the Powerups");
 	}
 
-	Powerup::Spawn();
-	DrawAll();
+	ConsoleDraw::Draw(m_position, '+');
 }
 
-Powerup::Powerup()
+bool Powerup::Update()
 {
-}
-
-int Powerup::GetCount()
-{
-	return m_position.size();
+	return false;
 }

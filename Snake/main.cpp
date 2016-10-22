@@ -8,6 +8,7 @@
 #include "Settings.h"
 #include "Singleton.h"
 #include "Powerup.h"
+#include "GameScene.h"
 #include <ctime>
 
 int main()
@@ -26,12 +27,14 @@ int main()
 	MoveWindow(GetConsoleWindow(), posX, posY, windowX, windowY, TRUE);
 
 	Singleton<Wall>::Instance().Draw();
-	Food f(3);
+	//Food f(3);
+
 
 	while(true)
 	{
+		Singleton<GameScene>::Instance().Update();
 				
-		f.FixedUpdate();
+		//f.FixedUpdate();
 		Singleton<Snake>::Instance().FixedUpdate();
 		Sleep(Singleton<Speed>::Instance().GetSpeed());
 	} 

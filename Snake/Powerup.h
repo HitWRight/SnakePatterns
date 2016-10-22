@@ -1,16 +1,12 @@
 #pragma once
-#include "BaseFood.h"
-#include "Settings.h"
+#include "Item.h"
 #include "PowerupTypes.h"
-class Powerup : public BaseFood{
+
+
+class Powerup : public Item {
 public:
-	Powerup(PowerupTypes type);
 	Powerup();
-	int GetCount();
 private:
-	PowerupTypes type;
-
-
-	// Inherited via BaseFood
-	virtual void Eat() override;
+	PowerupTypes m_type;
+	bool Update();
 };

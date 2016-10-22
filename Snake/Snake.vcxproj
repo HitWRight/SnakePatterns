@@ -149,8 +149,13 @@
     <ClCompile Include="BaseFood.cpp" />
     <ClCompile Include="Death.cpp" />
     <ClCompile Include="Food.cpp" />
+    <ClCompile Include="FoodFactory.cpp" />
+    <ClCompile Include="GameScene.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemFactory.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Powerup.cpp" />
+    <ClCompile Include="PowerupFactory.cpp" />
     <ClCompile Include="PowerupHandler.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="Snake.cpp" />
@@ -163,7 +168,12 @@
     <ClInclude Include="Direction.h" />
     <ClInclude Include="Food.h" />
     <ClInclude Include="BaseFood.h" />
+    <ClInclude Include="FoodFactory.h" />
+    <ClInclude Include="GameScene.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="ItemFactory.h" />
     <ClInclude Include="Powerup.h" />
+    <ClInclude Include="PowerupFactory.h" />
     <ClInclude Include="PowerupHandler.h" />
     <ClInclude Include="PowerupTypes.h" />
     <ClInclude Include="Score.h" />

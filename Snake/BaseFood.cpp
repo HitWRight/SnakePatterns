@@ -11,21 +11,15 @@
 
 using namespace std;
 
-random_device rd;
-mt19937 gen(rd());
-uniform_real_distribution<> dis(MIN, MAX);
+//random_device rd;
+//mt19937 gen(rd());
+//uniform_real_distribution<> dis(MIN, MAX);
 
 void BaseFood::Spawn()
 {
-	Vec2d nextPos = []() {
-		while (true)
-		{
-			Vec2d tryPos = { (short int)dis(gen), (short int)dis(gen) };
-			if (!Singleton<Snake>::Instance().spaceTaken(tryPos) && !Singleton<Wall>::Instance().CheckBoundary(tryPos))
-				return tryPos;
-		}
-	}();
-	m_position.push_back(nextPos);
+	//Vec2d nextPos = 
+	//}();
+	//m_position.push_back(nextPos);
 }
 void BaseFood::DrawAll()
 {

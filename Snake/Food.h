@@ -1,21 +1,14 @@
 #pragma once
+#include "Item.h"
 #include "Vec2d.h"
-#include <memory>
-#include <vector>
-#include "BaseFood.h"
-#include "Settings.h"
-#include "PowerupHandler.h"
 
-class Food : public BaseFood
+class Food : public Item
 {
 private:
-	PowerupHandler handler;
-
-	// Inherited via BaseFood
-	virtual void Eat() override;
 
 public:
-	Food(int count = 0, char sym = DEFAULT_SYMBOL_FOOD);
+	Food();
+	//Food(Vec2d const& initPos);
 
-	virtual void FixedUpdate() override;
+	bool Update();
 };
