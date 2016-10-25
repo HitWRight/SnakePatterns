@@ -3,6 +3,7 @@
 #include "Death.h"
 #include <Windows.h>
 #include "Wall.h"
+#include "MoveClient.h"
 
 #define BODYSYMBOL 'O'
 
@@ -25,7 +26,33 @@ void Snake::Move()
 {
 	m_clearPos =  m_body.back();
 
-	Vec2d nextPos = [&](Direction moveDir , Vec2d headPos)
+	MoveClient client;
+	Up up;
+	Down down;
+	Left left;
+	Right right;
+	None none;
+
+	switch (m_curMoveDir)
+	{
+		case Direction::down:
+			client.SetStrategy(&down);
+			break;
+		case Direction::up:
+			client.SetStrategy(&up);
+			break;
+		case Direction::left:
+			client.SetStrategy(&left);
+			break;
+		case Direction::right:
+			client.SetStrategy(&right);
+			break;
+		case Direction::none:
+			client.SetStrategy(&none);
+			break;
+	}
+
+	Vec2d nextPos = client.Move(m_body[0]);/*[&](Direction moveDir , Vec2d headPos)
 	{
 		switch (moveDir)
 		{
@@ -40,7 +67,7 @@ void Snake::Move()
 		}
 
 		return headPos;
-	}(m_curMoveDir, m_body[0]);
+	}(m_curMoveDir, m_body[0]);*/
 	
 //	for (auto ve = end(m_body), vb = begin(m_body) + 1; vb != ve; --ve)
 //		ve = (ve - 1);

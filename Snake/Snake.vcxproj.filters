@@ -122,6 +122,12 @@
     <ClInclude Include="PowerupFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="IMoveable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveClient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

@@ -170,8 +170,10 @@
     <ClInclude Include="BaseFood.h" />
     <ClInclude Include="FoodFactory.h" />
     <ClInclude Include="GameScene.h" />
+    <ClInclude Include="IMoveable.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemFactory.h" />
+    <ClInclude Include="MoveClient.h" />
     <ClInclude Include="Powerup.h" />
     <ClInclude Include="PowerupFactory.h" />
     <ClInclude Include="PowerupHandler.h" />
