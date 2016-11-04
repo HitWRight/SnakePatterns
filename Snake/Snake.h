@@ -31,3 +31,4 @@ public:
 	bool spaceTaken(Vec2d ch) { return (std::find(m_body.begin(), m_body.end(), ch)) == m_body.end() ? false : true; }
 };
 
+

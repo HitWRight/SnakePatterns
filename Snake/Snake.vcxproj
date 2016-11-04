@@ -148,6 +148,8 @@
   <ItemGroup>
     <ClCompile Include="BaseFood.cpp" />
     <ClCompile Include="Death.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyCommand.cpp" />
     <ClCompile Include="Food.cpp" />
     <ClCompile Include="FoodFactory.cpp" />
     <ClCompile Include="GameScene.cpp" />
@@ -166,6 +168,8 @@
     <ClInclude Include="ConsoleDraw.h" />
     <ClInclude Include="Death.h" />
     <ClInclude Include="Direction.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyCommand.h" />
     <ClInclude Include="Food.h" />
     <ClInclude Include="BaseFood.h" />
     <ClInclude Include="FoodFactory.h" />

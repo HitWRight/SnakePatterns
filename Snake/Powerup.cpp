@@ -18,26 +18,34 @@ Powerup::Powerup()
 	int wut = (short int)dis(gen);
 	m_type = static_cast<PowerupTypes>(wut);
 
-	switch (m_type)
-	{
-	case PowerupTypes::Speed:
-		for(int i=0;i<5;i++)
-		Singleton<Speed>::Instance().IncreaseLevel();
-		break;
-	case PowerupTypes::Size:
-		Singleton<Snake>::Instance().IncreaseSize(5);
-		break;
-	case PowerupTypes::Reverse:
-		Singleton<Snake>::Instance().Reverse();
-		break;
-	default:
-		throw new std::exception("Something fucky was with the Powerups");
-	}
+	
 
 	ConsoleDraw::Draw(m_position, '&');
 }
 
 bool Powerup::Update()
 {
+	if (m_position == Singleton<Snake>::Instance().GetHeadPosition())
+	{
+
+		switch (m_type)
+		{
+		case PowerupTypes::Speed:
+			for (int i = 0; i < 5; i++)
+				Singleton<Speed>::Instance().IncreaseLevel();
+			break;
+		case PowerupTypes::Size:
+			Singleton<Snake>::Instance().IncreaseSize(5);
+			break;
+		case PowerupTypes::Reverse:
+			Singleton<Snake>::Instance().Reverse();
+			break;
+		default:
+			throw new std::exception("Something fucky was with the Powerups");
+		}
+
+		return true;
+	}
+
 	return false;
 }

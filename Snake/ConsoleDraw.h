@@ -29,7 +29,7 @@ namespace ConsoleDraw {
 
 	static void Erase(Vec2d const& pos)
 	{
-		Draw(pos, 'X');
+		Draw(pos, ' ');
 	}
 
 	static void ClearConsole()

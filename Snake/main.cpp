@@ -9,14 +9,16 @@
 #include "Singleton.h"
 #include "Powerup.h"
 #include "GameScene.h"
-#include <ctime>
+//#include <ctime>
+
+#include <chrono>
+#include <thread>
 
 
 int main()
 {
 
 	srand(time(NULL));
-	//printf("%s%s", (true ? "test", "test2" : "test3", "test4"));
 
 	CONSOLE_FONT_INFOEX info = { 0 };
 	info.cbSize = sizeof(info);
@@ -28,16 +30,16 @@ int main()
 	MoveWindow(GetConsoleWindow(), posX, posY, windowX, windowY, TRUE);
 
 	Singleton<Wall>::Instance().Draw();
-	//Food f(3);
-
 
 	while(true)
 	{
 		Singleton<GameScene>::Instance().Update();
-				
-		//f.FixedUpdate();
 		Singleton<Snake>::Instance().FixedUpdate();
-		Sleep(Singleton<Speed>::Instance().GetSpeed());
+
+		std::this_thread::sleep_until(
+			std::chrono::steady_clock::now() + 
+			static_cast<std::chrono::milliseconds>(
+				Singleton<Speed>::Instance().GetSpeed()));
 	} 
 	
 
