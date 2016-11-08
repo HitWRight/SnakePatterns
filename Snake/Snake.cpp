@@ -50,6 +50,7 @@ void Snake::Move()
 		case Direction::none:
 			client.SetStrategy(&none);
 			break;
+
 	}
 
 	Vec2d nextPos = client.Move(m_body[0]);/*[&](Direction moveDir , Vec2d headPos)

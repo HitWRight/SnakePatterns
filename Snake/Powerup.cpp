@@ -4,6 +4,10 @@
 #include "Singleton.h"
 #include "GameScene.h"
 #include "ConsoleDraw.h"
+#include "ActivateServant.h"
+#include "IncreaseSpeed.h"
+#include "IncreaseSize.h"
+#include "Reverse.h"
 #include <random>
 
 
@@ -27,22 +31,30 @@ bool Powerup::Update()
 {
 	if (m_position == Singleton<Snake>::Instance().GetHeadPosition())
 	{
-
+		ActivateServant servant;
+		Activatable* activate = nullptr;
+		IncreaseSpeed speed;
+		IncreaseSize size;
+		Reverse reverse;
 		switch (m_type)
 		{
 		case PowerupTypes::Speed:
-			for (int i = 0; i < 5; i++)
-				Singleton<Speed>::Instance().IncreaseLevel();
+			activate = &speed;
+			/*for (int i = 0; i < 5; i++)
+				Singleton<Speed>::Instance().IncreaseLevel();*/
 			break;
 		case PowerupTypes::Size:
-			Singleton<Snake>::Instance().IncreaseSize(5);
+			activate = &size;
+			//Singleton<Snake>::Instance().IncreaseSize(5);
 			break;
 		case PowerupTypes::Reverse:
-			Singleton<Snake>::Instance().Reverse();
+			activate = &reverse;
+			//Singleton<Snake>::Instance().Reverse();
 			break;
 		default:
 			throw new std::exception("Something fucky was with the Powerups");
 		}
+		servant.Activate(*activate);
 
 		return true;
 	}

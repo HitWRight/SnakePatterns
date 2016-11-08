@@ -33,11 +33,13 @@ int main()
 
 	while(true)
 	{
+		Sleep(Singleton<Speed>::Instance().GetSpeed());
+
 		Singleton<GameScene>::Instance().Update();
 		Singleton<Snake>::Instance().FixedUpdate();
 
 		std::this_thread::sleep_until(
-			std::chrono::steady_clock::now() + 
+			std::chrono::high_resolution_clock::now() + 
 			static_cast<std::chrono::milliseconds>(
 				Singleton<Speed>::Instance().GetSpeed()));
 	} 
