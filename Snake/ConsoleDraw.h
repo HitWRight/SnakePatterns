@@ -20,11 +20,19 @@ namespace ConsoleDraw {
 		return;
 	}
 
+
 	static void Draw(std::string const& text)
 	{
 		cout << text;
-
 		return;
+	}
+
+
+	static void Draw(Vec2d const& pos, std::string const& text)
+	{
+		COORD coord = { pos.x,pos.y };
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+		Draw(text);
 	}
 
 	static void Erase(Vec2d const& pos)

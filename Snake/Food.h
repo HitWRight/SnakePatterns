@@ -2,13 +2,12 @@
 #include "Item.h"
 #include "Vec2d.h"
 
+#include <functional>
+
 class Food : public Item
 {
-private:
-
 public:
 	Food();
-	//Food(Vec2d const& initPos);
 
 	bool Update();
 };

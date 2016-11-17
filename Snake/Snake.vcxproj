@@ -156,12 +156,14 @@
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemFactory.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Powerup.cpp" />
     <ClCompile Include="PowerupFactory.cpp" />
     <ClCompile Include="PowerupHandler.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="Snake.cpp" />
     <ClCompile Include="Speed.cpp" />
+    <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +179,7 @@
     <ClInclude Include="IMoveable.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemFactory.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="MoveClient.h" />
     <ClInclude Include="Powerup.h" />
     <ClInclude Include="PowerupFactory.h" />
@@ -187,6 +190,8 @@
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Snake.h" />
     <ClInclude Include="Speed.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="StateManager.h" />
     <ClInclude Include="Vec2d.h" />
     <ClInclude Include="Wall.h" />
   </ItemGroup>

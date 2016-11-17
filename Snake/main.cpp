@@ -1,6 +1,5 @@
 #include <iostream>
 #include <Windows.h>
-#include "Snake.h"
 #include "ConsoleDraw.h"
 #include "Food.h"
 #include "Speed.h"
@@ -8,7 +7,7 @@
 #include "Settings.h"
 #include "Singleton.h"
 #include "Powerup.h"
-#include "GameScene.h"
+#include "StateManager.h"
 //#include <ctime>
 
 #include <chrono>
@@ -29,14 +28,12 @@ int main()
 	SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), NULL, &info);
 	MoveWindow(GetConsoleWindow(), posX, posY, windowX, windowY, TRUE);
 
-	Singleton<Wall>::Instance().Draw();
+	//
 
 	while(true)
 	{
-		Sleep(Singleton<Speed>::Instance().GetSpeed());
-
-		Singleton<GameScene>::Instance().Update();
-		Singleton<Snake>::Instance().FixedUpdate();
+		Singleton<StateManager>::Instance().Update();
+		//
 
 		std::this_thread::sleep_until(
 			std::chrono::high_resolution_clock::now() + 
