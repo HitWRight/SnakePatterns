@@ -16,12 +16,13 @@
 
 std::uniform_real_distribution<> dis(MIN, MAX);
 
+PCHAR_INFO Memento::buffer;
+
+static int i = []() {Memento::buffer = new CHAR_INFO[25 * 25]; return 0; }();
 
 
 GameScene::GameScene() : m_counter(0), m_firstTime(true)
-{
-	buffer = new CHAR_INFO[25 * 25];
-	
+{	
 }
 
 void GameScene::GenerateEnemies(int difficulty)
@@ -52,7 +53,7 @@ void GameScene::Load()
 		COORD      buffer_index = { 0, 0 };  // read/write rectangle has upper-right corner at upper-right corner of buffer
 		SMALL_RECT read_rect = { x,     y,     x + width - 1, y + height - 1 };
 
-		WriteConsoleOutput(hStdOut, buffer, buffer_size, buffer_index, &read_rect);
+		WriteConsoleOutput(hStdOut, Memento::buffer, buffer_size, buffer_index, &read_rect);
 	}
 }
 
@@ -66,7 +67,7 @@ void GameScene::Save()
 	COORD      buffer_index = { 0, 0 };  // read/write rectangle has upper-right corner at upper-right corner of buffer
 	SMALL_RECT read_rect = { x,     y,     x + width - 1, y + height - 1 };
 
-	ReadConsoleOutput(hStdOut, buffer, buffer_size, buffer_index, &read_rect);
+	ReadConsoleOutput(hStdOut, Memento::buffer, buffer_size, buffer_index, &read_rect);
 			
 
 	ConsoleDraw::ClearConsole();

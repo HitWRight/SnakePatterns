@@ -14,8 +14,6 @@ struct GameScene : State
 {
 	friend class Singleton<GameScene>;
 
-	PCHAR_INFO buffer;
-
 	std::vector<Item*> mapItems;
 	int m_counter;
 	bool m_firstTime;
@@ -36,4 +34,9 @@ public:
 	Vec2d const& GetUnusedPosition();
 	bool IsPositionTaken(Vec2d const& position);
 
+};
+
+struct Memento
+{
+	static PCHAR_INFO buffer;
 };
