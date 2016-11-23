@@ -37,7 +37,7 @@ void Death::Die()
 		{
 			ConsoleDraw::Draw(signStartPos + deathSignPos[i][j], '@');
 		}
-	std::string text("\n\n\nYour score is: " + std::to_string(Score::GetScore()) + "\n");
+	std::string text("\n\n\nYour score is: " + std::to_string(Score::GetScore()) + "\n" + "Food eaten: " + std::to_string(Score::GetFoodEaten()) + "\n" + "Powerups taken: " + std::to_string(Score::GetPowerupsTaken()) + "\n");
 	ConsoleDraw::Draw(text);
 
 

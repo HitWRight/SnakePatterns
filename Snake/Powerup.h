@@ -3,7 +3,7 @@
 #include "PowerupTypes.h"
 
 
-class Powerup : public Item {
+class Powerup : public Item{
 public:
 	Powerup();
 private:

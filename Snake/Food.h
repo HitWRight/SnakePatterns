@@ -8,6 +8,5 @@ class Food : public Item
 {
 public:
 	Food();
-
 	bool Update();
 };

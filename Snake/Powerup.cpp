@@ -8,6 +8,8 @@
 #include "IncreaseSpeed.h"
 #include "IncreaseSize.h"
 #include "Reverse.h"
+#include "NullPowerup.h"
+#include "Score.h"
 #include <random>
 
 
@@ -32,7 +34,8 @@ bool Powerup::Update()
 	if (m_position == Singleton<Snake>::Instance().GetHeadPosition())
 	{
 		ActivateServant servant;
-		Activatable* activate = nullptr;
+		NullPowerup null;
+		Activatable* activate = &null;
 		IncreaseSpeed speed;
 		IncreaseSize size;
 		Reverse reverse;
@@ -51,11 +54,11 @@ bool Powerup::Update()
 			activate = &reverse;
 			//Singleton<Snake>::Instance().Reverse();
 			break;
-		default:
-			throw new std::exception("Something fucky was with the Powerups");
+		/*default:
+			throw new std::exception("Something fucky was with the Powerups");*/
 		}
+		Score::PowerupTaken();
 		servant.Activate(*activate);
-
 		return true;
 	}
 

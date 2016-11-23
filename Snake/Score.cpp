@@ -6,6 +6,21 @@
 using namespace std;
 
 int Score::score;
+int Score::powerupsTaken;
+int Score::foodEaten;
+
+
+void Score::PowerupTaken()
+{
+	Increment(5);
+	powerupsTaken++;
+}
+
+void Score::FoodEaten()
+{
+	Increment(1);
+	foodEaten++;
+}
 
 void Score::Increment(int points) {
 	Score::score += points;
@@ -14,6 +29,7 @@ void Score::Increment(int points) {
 int Score::GetScore() {
 	return score;
 }
+
 
 void Score::SaveScore() {
 	fstream output;
@@ -34,3 +50,15 @@ std::vector<int> Score::ReadScore() {
 
 	return scores;
 }
+
+int Score::GetPowerupsTaken()
+{
+	return powerupsTaken;
+}
+
+int Score::GetFoodEaten()
+{
+	return foodEaten;
+}
+
+

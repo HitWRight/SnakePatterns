@@ -78,6 +78,21 @@
     <ClCompile Include="StateManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ActivateServant.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IncreaseSize.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IncreaseSpeed.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Reverse.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NullPowerup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Snake.h">
@@ -159,6 +174,24 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="StateManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ActivateServant.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Activatable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IncreaseSize.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IncreaseSpeed.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Reverse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NullPowerup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
