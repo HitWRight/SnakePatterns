@@ -26,7 +26,7 @@ Powerup::Powerup()
 
 	
 
-	ConsoleDraw::Draw(m_position, '&');
+	ConsoleDraw::GetConsole().Draw(m_position, '&');
 }
 
 bool Powerup::Update()

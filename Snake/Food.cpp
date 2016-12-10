@@ -14,7 +14,7 @@
 Food::Food() : Item()
 {
 	m_position = Singleton<GameScene>::Instance().GetUnusedPosition();
-	ConsoleDraw::Draw(m_position, '*');
+	ConsoleDraw::GetConsole().Draw(m_position, '*');
 }
 
 

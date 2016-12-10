@@ -10,7 +10,7 @@ using namespace EnemyNS;
 Enemy::Enemy() : Item()
 {
 	m_position = Singleton<GameScene>::Instance().GetUnusedPosition();
-	ConsoleDraw::Draw(m_position, 'Y');
+	ConsoleDraw::GetConsole().Draw(m_position, 'Y');
 }
 
 bool Enemy::Update()
@@ -54,8 +54,8 @@ void Enemy::Move(MovementDirection direction)
 
 	if (!Singleton<GameScene>::Instance().IsPositionTaken(nextPos))
 	{
-		ConsoleDraw::Draw(nextPos, 'H');
-		ConsoleDraw::Erase(m_position);
+		ConsoleDraw::GetConsole().Draw(nextPos, 'H');
+		ConsoleDraw::GetConsole().Erase(m_position);
 		m_position = nextPos;
 	}
 }

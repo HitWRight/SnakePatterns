@@ -148,9 +148,11 @@
   <ItemGroup>
     <ClCompile Include="ActivateServant.cpp" />
     <ClCompile Include="BaseFood.cpp" />
+    <ClCompile Include="ConsoleDraw.cpp" />
     <ClCompile Include="Death.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyCommand.cpp" />
+    <ClCompile Include="ExitButton.cpp" />
     <ClCompile Include="Food.cpp" />
     <ClCompile Include="FoodFactory.cpp" />
     <ClCompile Include="GameScene.cpp" />
@@ -160,7 +162,9 @@
     <ClCompile Include="ItemFactory.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="NullPowerup.cpp" />
+    <ClCompile Include="PlayButton.cpp" />
     <ClCompile Include="Powerup.cpp" />
     <ClCompile Include="PowerupFactory.cpp" />
     <ClCompile Include="PowerupHandler.cpp" />
@@ -179,6 +183,7 @@
     <ClInclude Include="Direction.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyCommand.h" />
+    <ClInclude Include="ExitButton.h" />
     <ClInclude Include="Food.h" />
     <ClInclude Include="BaseFood.h" />
     <ClInclude Include="FoodFactory.h" />
@@ -189,8 +194,10 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemFactory.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuButton.h" />
     <ClInclude Include="MoveClient.h" />
     <ClInclude Include="NullPowerup.h" />
+    <ClInclude Include="PlayButton.h" />
     <ClInclude Include="Powerup.h" />
     <ClInclude Include="PowerupFactory.h" />
     <ClInclude Include="PowerupHandler.h" />

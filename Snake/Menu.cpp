@@ -1,5 +1,7 @@
+#pragma once
 #include "Menu.h"
 #include "ConsoleDraw.h"
+
 
 enum class MenuDirection
 {
@@ -10,23 +12,28 @@ enum class MenuDirection
 
 void Menu::HandleSpace()
 {
-	switch (m_selection)
-	{
-	case 0:
-		m_menu1callback();
-		break;
-	case 1:
-		exit(1);
-	default:
-		break;
-	}
+     MenuNS::MenuCommand mc = [](int m_selection) {
+		switch (m_selection)
+		{
+		case 0:
+			return MenuNS::MenuCommand::PlayGame;
+		case 1:
+			return MenuNS::MenuCommand::Exit;
+		}
+		return MenuNS::MenuCommand::PlayGame;
+	}(m_selection);
+
+	m_FirstButton.HandleClick(mc);
 
 }
 
-Menu::Menu(std::function<void()> menu1callback)
+Menu::Menu(std::function<void()> playCallback) : m_FirstButton(MenuNS::PlayButton(playCallback))
 {
-	m_menu1callback = menu1callback;
+	//m_menu1callback = playCallback;
 	//menu1callback();
+
+	static MenuNS::ExitButton exitButton;
+	m_FirstButton.AddNext(&exitButton);
 }
 
 void Menu::Update()
@@ -68,10 +75,10 @@ void Menu::Update()
 
 	for (auto icoPos : c_icoPositions)
 	{
-		ConsoleDraw::Erase(icoPos);
+		ConsoleDraw::GetConsole().Erase(icoPos);
 	}
 
-	ConsoleDraw::Draw(c_icoPositions[m_selection], '*');
+	ConsoleDraw::GetConsole().Draw(c_icoPositions[m_selection], '*');
 	//update graphics
 
 }
@@ -80,14 +87,14 @@ void Menu::Update()
 
 void Menu::Load()
 {
-	ConsoleDraw::Draw({ 6, 5 }, "New game");
-	ConsoleDraw::Draw({ 6, 7 }, "Exit");
+	ConsoleDraw::GetConsole().Draw({ 6, 5 }, "New game");
+	ConsoleDraw::GetConsole().Draw({ 6, 7 }, "Exit");
 
 	//TODO: load state from file
 
 	m_selection = 0;
 
-	ConsoleDraw::Draw(c_icoPositions[m_selection], '*');
+	ConsoleDraw::GetConsole().Draw(c_icoPositions[m_selection], '*');
 }
 
 void Menu::Save()

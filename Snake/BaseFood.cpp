@@ -24,7 +24,7 @@ void BaseFood::Spawn()
 void BaseFood::DrawAll()
 {
 	for (auto a : m_position)
-		ConsoleDraw::Draw(a, sym);
+		ConsoleDraw::GetConsole().Draw(a, sym);
 }
 
 void BaseFood::FixedUpdate()

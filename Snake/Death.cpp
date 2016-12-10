@@ -14,7 +14,7 @@ Death::~Death()
 void Death::Die()
 {
 	Score::SaveScore();
-	ConsoleDraw::ClearConsole();
+	ConsoleDraw::GetConsole().ClearConsole();
 
 	//25x25
 	Vec2d signStartPos = { 3, 8 };
@@ -35,10 +35,10 @@ void Death::Die()
 	for (int i = 0; i<5; ++i)
 		for (int j = 0; j < 10; ++j)
 		{
-			ConsoleDraw::Draw(signStartPos + deathSignPos[i][j], '@');
+			ConsoleDraw::GetConsole().Draw(signStartPos + deathSignPos[i][j], '@');
 		}
 	std::string text("\n\n\nYour score is: " + std::to_string(Score::GetScore()) + "\n" + "Food eaten: " + std::to_string(Score::GetFoodEaten()) + "\n" + "Powerups taken: " + std::to_string(Score::GetPowerupsTaken()) + "\n");
-	ConsoleDraw::Draw(text);
+	ConsoleDraw::GetConsole().Draw(text);
 
 
 	Sleep(5000);

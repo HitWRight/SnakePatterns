@@ -38,5 +38,5 @@ public:
 
 struct Memento
 {
-	static PCHAR_INFO buffer;
+	static std::string buffer;
 };

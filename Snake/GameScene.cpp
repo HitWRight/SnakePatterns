@@ -16,9 +16,8 @@
 
 std::uniform_real_distribution<> dis(MIN, MAX);
 
-PCHAR_INFO Memento::buffer;
+std::string Memento::buffer;
 
-static int i = []() {Memento::buffer = new CHAR_INFO[25 * 25]; return 0; }();
 
 
 GameScene::GameScene() : m_counter(0), m_firstTime(true)
@@ -35,7 +34,7 @@ void GameScene::GenerateEnemies(int difficulty)
 
 void GameScene::Load()
 {
-	ConsoleDraw::ClearConsole();
+	ConsoleDraw::GetConsole().ClearConsole();
 	Singleton<Wall>::Instance().Draw();
 	
 	if (m_firstTime)
@@ -45,32 +44,14 @@ void GameScene::Load()
 	}
 	else
 	{
-		int x = 0, y = 0;
-		int width = 25, height = 25;
-
-		HANDLE     hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-		COORD      buffer_size = { width, height };
-		COORD      buffer_index = { 0, 0 };  // read/write rectangle has upper-right corner at upper-right corner of buffer
-		SMALL_RECT read_rect = { x,     y,     x + width - 1, y + height - 1 };
-
-		WriteConsoleOutput(hStdOut, Memento::buffer, buffer_size, buffer_index, &read_rect);
+		ConsoleDraw::GetConsole().WriteBuffer(Memento::buffer);
 	}
 }
 
 void GameScene::Save()
 {
-	int x = 0, y = 0;
-	int width = 25, height = 25;
-	
-	HANDLE     hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-	COORD      buffer_size = { width, height };
-	COORD      buffer_index = { 0, 0 };  // read/write rectangle has upper-right corner at upper-right corner of buffer
-	SMALL_RECT read_rect = { x,     y,     x + width - 1, y + height - 1 };
-
-	ReadConsoleOutput(hStdOut, Memento::buffer, buffer_size, buffer_index, &read_rect);
-			
-
-	ConsoleDraw::ClearConsole();
+	Memento::buffer = ConsoleDraw::GetConsole().ReadBuffer();
+	ConsoleDraw::GetConsole().ClearConsole();
 }
 
 void GameScene::SetCallback(std::function<void()> returnToMenu)

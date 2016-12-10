@@ -82,10 +82,10 @@ void Snake::Move()
 
 void Snake::Redraw()
 	{
-	ConsoleDraw::Draw(m_clearPos, ' ');
+	ConsoleDraw::GetConsole().Draw(m_clearPos, ' ');
 
 	for (Vec2d coords : m_body)
-		ConsoleDraw::Draw(coords, BODYSYMBOL);
+		ConsoleDraw::GetConsole().Draw(coords, BODYSYMBOL);
 }
 
 void Snake::CheckCollisionWithSelf()
