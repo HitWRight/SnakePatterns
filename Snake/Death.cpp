@@ -3,6 +3,7 @@
 #include "Vec2d.h"
 #include "Score.h"
 #include <memory>
+#include "ScoreAdapter.h"
 Death::Death()
 {
 }
@@ -13,7 +14,7 @@ Death::~Death()
 
 void Death::Die()
 {
-	Score::SaveScore();
+	ScoreAdapter::SaveScore();
 	ConsoleDraw::GetConsole().ClearConsole();
 
 	//25x25
@@ -37,7 +38,7 @@ void Death::Die()
 		{
 			ConsoleDraw::GetConsole().Draw(signStartPos + deathSignPos[i][j], '@');
 		}
-	std::string text("\n\n\nYour score is: " + std::to_string(Score::GetScore()) + "\n" + "Food eaten: " + std::to_string(Score::GetFoodEaten()) + "\n" + "Powerups taken: " + std::to_string(Score::GetPowerupsTaken()) + "\n");
+	std::string text("\n\n\nYour score is: " + std::to_string(ScoreAdapter::GetScore()) + "\n" + "Food eaten: " + std::to_string(ScoreAdapter::GetFoodEaten()) + "\n" + "Powerups taken: " + std::to_string(ScoreAdapter::GetPowerupsTaken()) + "\n");
 	ConsoleDraw::GetConsole().Draw(text);
 
 

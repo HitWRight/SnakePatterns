@@ -5,6 +5,7 @@
 #include "ConsoleDraw.h"
 #include "Speed.h"
 #include "Score.h"
+#include "ScoreAdapter.h"
 
 //Food::Food(Vec2d const & initPos) : Item(initPos)
 //{
@@ -25,7 +26,7 @@ bool Food::Update()
 		Singleton<GameScene>::Instance().RemoveItem(this);
 		Singleton<Snake>::Instance().IncreaseSize(1);
 		Singleton<Speed>::Instance().IncreaseLevel();
-		Score::FoodEaten();
+		ScoreAdapter::FoodEaten();
 		return true;
 	}
 	return false;

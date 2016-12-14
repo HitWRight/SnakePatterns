@@ -11,6 +11,7 @@
 #include "NullPowerup.h"
 #include "Score.h"
 #include <random>
+#include "ScoreAdapter.h"
 
 
 
@@ -57,7 +58,7 @@ bool Powerup::Update()
 		/*default:
 			throw new std::exception("Something fucky was with the Powerups");*/
 		}
-		Score::PowerupTaken();
+		ScoreAdapter::Increment(5);
 		servant.Activate(*activate);
 		return true;
 	}

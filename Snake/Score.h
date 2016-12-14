@@ -1,8 +1,9 @@
 #pragma once
 #include "Settings.h"
+#include "ScoreBase.h"
 #include <vector>
 
-static class Score {
+static class Score : public ScoreBase {
 private:
 	static int score;
 	static int powerupsTaken;

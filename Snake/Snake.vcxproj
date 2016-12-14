@@ -170,6 +170,8 @@
     <ClCompile Include="PowerupHandler.cpp" />
     <ClCompile Include="Reverse.cpp" />
     <ClCompile Include="Score.cpp" />
+    <ClCompile Include="ScoreAdapter.cpp" />
+    <ClCompile Include="ScoreNew.cpp" />
     <ClCompile Include="Snake.cpp" />
     <ClCompile Include="Speed.cpp" />
     <ClCompile Include="StateManager.cpp" />
@@ -204,6 +206,9 @@
     <ClInclude Include="PowerupTypes.h" />
     <ClInclude Include="Reverse.h" />
     <ClInclude Include="Score.h" />
+    <ClInclude Include="ScoreAdapter.h" />
+    <ClInclude Include="ScoreBase.h" />
+    <ClInclude Include="ScoreNew.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Snake.h" />
